@@ -57,16 +57,21 @@ timesheets/
    git clone https://github.com/ungureanudaniel/timesheets.git
    cd timesheets
 2. Create and activate a virtual environment:
-```bash
-python -m venv myvenv
-source myvenv/bin/activate # to ativate the environment in linux
-./myvenv/Scripts/activate` # to activate the environment in windows, although PowerShell can give you a headache. I recommend though the terminal in Visual Studio Code if windows is not avoidable
+   ```bash
+   python -m venv myvenv
+   source myvenv/bin/activate # to ativate the environment in linux
+   ./myvenv/Scripts/activate` # to activate the environment in windows, although PowerShell can give you a headache. I recommend though the terminal in Visual Studio Code if windows is not avoidable
+
 3. Install dependencies:
-pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
 4. Apply database migrations:
-python manage.py migrate
+   ```bash
+   python manage.py migrate
 5. Create a superuser (admin):
-python manage.py createsuperuser
+   ```bash
+   python manage.py createsuperuser
 6. Run the development server:
-python manage.py runserver
+   ```bash
+   python manage.py runserver
 7. Access the application at http://localhost:8000
