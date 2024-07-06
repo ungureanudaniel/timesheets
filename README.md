@@ -54,7 +54,7 @@ timesheets/
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/ungureanudaniel/timesheets.git
    cd timesheets
 2. Create and activate a virtual environment:
 python -m venv venv
