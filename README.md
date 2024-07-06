@@ -58,7 +58,8 @@ timesheets/
    cd timesheets
 2. Create and activate a virtual environment:
 python -m venv venv
-source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+environment activation in linux/ubuntu: 'source venv/bin/activate'
+environment activation in Windows: `./myvenv/Scripts/activate`, although PowerShell can give you a headache. I recommend though the terminal in Visual Studio Code if windows is not avoidable
 3. Install dependencies:
 pip install -r requirements.txt
 4. Apply database migrations:
