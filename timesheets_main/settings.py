@@ -151,7 +151,6 @@ USE_TZ = True
 
 USE_L10N = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -221,7 +220,7 @@ CAPTCHA_FOREGROUND_COLOR = "black"
 #================django payments settings=====================
 TICKET_EMAIL_HEADER = os.getenv('TICKET_EMAIL_HEADER')
 BASE_URL = os.getenv('BASE_URL')
-#=====================LOGGING  ERORRS=========================
+#=====================LOGGING  ERRORS=========================
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -242,22 +241,24 @@ LOGGING = {
             'formatter': 'verbose'
         },
         'console': {
+            'level': 'ERROR',
             'class': 'logging.StreamHandler',
+            'formatter': 'simple',
         },
     },
     'loggers': {
         'django': {
             'handlers':['file', 'console'],
             'propagate': False,
-            'level':'DEBUG',
+            'level':'ERROR',
         },
         'services': {
             'handlers': ['file'],
-            'level': 'DEBUG',
+            'level': 'ERROR',
         },
         'payments': {
             'handlers': ['file'],
-            'level': 'DEBUG',
+            'level': 'ERROR',
         },
         
     }

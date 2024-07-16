@@ -2,35 +2,29 @@
 {% load static %}
 {% load i18n %}
 {% load cache %}
-{% block content %}
-<!-- Main Content -->
-<div class="main-content">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card mt-5">
-                    <div class="card-body">
-                        
 
-                        <h2 class="card-title text-center">User Profile</h2>
-                        {% if request.user.is_approved == 'False' %}
-                        <div class="mb-3">
-                            <label for="username" class="form-label">{{ message }}</label>
-                        </div>
-                        {% else %}
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" id="username" class="form-control" value="{{ user.username }}" disabled>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" class="form-control" value="{{ user.email }}" disabled>
-                        </div>
-                        <div class="d-grid">
-                            <a href="#" class="btn btn-primary">Edit Profile</a>
-                        </div>
-                        {% endif %}
-                    </div>
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ user.profile.avatar.url  }}" class="card-img-top" alt="Profile Image">
+                <div class="card-body">
+                    <h5 class="card-title">{% trans 'User Information' %}</h5>
+                    <p class="card-text">{% trans 'Username' %}: {{ user.username }}</p>
+                    <p class="card-text">{% trans 'Email' %}: {{ user.email }}</p>
+                    <p class="card-text">{% trans 'Full Name' %}: {{ user.get_full_name }}</p>
+                    <p class="card-text">{% trans 'Bio' %}: {{ user.profile.bio }}</p>
+                    <!-- Add more profile fields as needed -->
+                    <a href="{% url 'profile_edit' pk=user.pk %}" class="btn btn-primary">{% trans 'Edit Profile' %}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{% trans 'Recent Activity' %}</h5>
+                    <p class="card-text">{% trans 'No recent activity.' %}</p>
                 </div>
             </div>
         </div>

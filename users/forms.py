@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from .models import CustomUser
 from django.contrib.auth import get_user_model # why this here?
 from django.utils.translation import gettext_lazy as _
@@ -40,4 +40,6 @@ class CustomUserCreationForm(UserCreationForm):
                 user.assign_initial_group()
             return user
 
-        
+#==============password change form=============
+class PasswordChangeForm(PasswordChangeForm):
+    pass

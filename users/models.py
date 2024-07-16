@@ -15,6 +15,7 @@ class CustomUser(AbstractUser):
 class UserProfile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     bio = models.TextField(blank=True)
+    resume = models.FileField(upload_to='cv/', blank=True, null=True)
     avatar = models.ImageField(upload_to='avatars/', blank=True)
 
     def __str__(self):

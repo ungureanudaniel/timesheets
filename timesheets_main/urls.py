@@ -3,7 +3,6 @@ from django.urls import path, include, re_path
 from django.views.static import serve
 from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
-from django.contrib.auth.views import LoginView
 from django.conf.urls.static import static
 
 
