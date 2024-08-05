@@ -1,8 +1,13 @@
 from django.contrib import admin
-from .models import Activity, Timesheet
+from .models import Activity, Timesheet, FundsSource
 
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
+    list_display = ['code', 'name']
+    search_fields = ['name', 'code']
+
+@admin.register(FundsSource)
+class FundsSourceAdmin(admin.ModelAdmin):
     list_display = ['name', 'description']
     search_fields = ['name']
 

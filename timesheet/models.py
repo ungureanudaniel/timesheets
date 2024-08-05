@@ -6,13 +6,13 @@ class Activity(models.Model):
     This class creates db tables for the types of actvities
     """
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    code = models.CharField(max_length=6)
 
     class Meta:
         verbose_name = "Activity"
         verbose_name_plural = "Activities"
     def __str__(self):
-        return self.name
+        return "{} - {}".format(self.code, self.name)
     
 class FundsSource(models.Model):
     """This class created db tables for the source of funds, which will be selectable from a 
@@ -22,8 +22,8 @@ class FundsSource(models.Model):
     description = models.TextField()
 
     class Meta:
-        verbose_name = "Activity"
-        verbose_name_plural = "Activities"
+        verbose_name = "Funds"
+        verbose_name_plural = "Funds"
     def __str__(self):
         return self.name
 class Timesheet(models.Model):
@@ -33,7 +33,8 @@ class Timesheet(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     funds_from = models.CharField(max_length=50)
     date = models.DateField()
-    hours_worked = models.DecimalField(max_digits=5, decimal_places=2)
+    hours_worked = models.DecimalField(max_digits=5, decimal_places=0)
+    fundssource = models.ForeignKey(FundsSource, on_delete=models.CASCADE)
     activity = models.ForeignKey(Activity, on_delete=models.CASCADE)
     description = models.TextField()
     submitted = models.BooleanField(default=False)

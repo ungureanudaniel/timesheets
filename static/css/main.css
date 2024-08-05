@@ -101,3 +101,7 @@ body {
     background-color: #0056b3; /* Example button hover color */
     border-color: #0056b3;
 }
+.custom-modal-height {
+    max-height: 90vh; /* Adjust this value as needed */
+    overflow-y: auto; /* Enable vertical scrolling if the content exceeds the modal height */
+}
